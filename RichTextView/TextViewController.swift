@@ -46,6 +46,8 @@ class TextViewController: NSViewController, NSTextViewDelegate {
 //        textView.usesRuler = true
         textView.isEditable = true
         textView.isSelectable = true
+        textView.usesFontPanel = false // 禁掉右键菜单中的字体选择
+        textView.menu = nil // 禁掉右键菜单
 //        textView.string = "hahahahahhahahahahhahahahahhahahahahhahahahahhahahahahhahahahah\n1\n2\n3\n4\n5\n6\n7\n8\n8\n8\n8"
 //        textView.string = "1hahaj"
 

@@ -16,6 +16,7 @@
 		667553C41E80F8A5001F5BD1 /* NSFontEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667553C31E80F8A5001F5BD1 /* NSFontEx.swift */; };
 		667553C61E8106CC001F5BD1 /* TextVerticalRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667553C51E8106CC001F5BD1 /* TextVerticalRulerView.swift */; };
 		667553C81E813438001F5BD1 /* NSColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667553C71E813438001F5BD1 /* NSColorEx.swift */; };
+		66886CEB1E9E89BD0041792F /* NSTextViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66886CEA1E9E89BD0041792F /* NSTextViewEx.swift */; };
 		66BC66B81E8F917F00309EB5 /* TextVerticalRulerView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BC66B71E8F917F00309EB5 /* TextVerticalRulerView2.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		667553C31E80F8A5001F5BD1 /* NSFontEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFontEx.swift; sourceTree = "<group>"; };
 		667553C51E8106CC001F5BD1 /* TextVerticalRulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextVerticalRulerView.swift; sourceTree = "<group>"; };
 		667553C71E813438001F5BD1 /* NSColorEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorEx.swift; sourceTree = "<group>"; };
+		66886CEA1E9E89BD0041792F /* NSTextViewEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextViewEx.swift; sourceTree = "<group>"; };
 		66BC66B71E8F917F00309EB5 /* TextVerticalRulerView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextVerticalRulerView2.swift; sourceTree = "<group>"; };
 		834F1893B70D7BBE727E9EF9 /* Pods-RichTextView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RichTextView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RichTextView/Pods-RichTextView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,16 +79,17 @@
 		667553AD1E7F8116001F5BD1 /* RichTextView */ = {
 			isa = PBXGroup;
 			children = (
-				667553B51E7F8116001F5BD1 /* Info.plist */,
 				667553AE1E7F8116001F5BD1 /* AppDelegate.swift */,
 				667553BF1E7FA782001F5BD1 /* Application.swift */,
+				667553B01E7F8116001F5BD1 /* Assets.xcassets */,
+				667553B51E7F8116001F5BD1 /* Info.plist */,
 				667553C71E813438001F5BD1 /* NSColorEx.swift */,
 				667553C31E80F8A5001F5BD1 /* NSFontEx.swift */,
+				66886CEA1E9E89BD0041792F /* NSTextViewEx.swift */,
 				667553C51E8106CC001F5BD1 /* TextVerticalRulerView.swift */,
 				66BC66B71E8F917F00309EB5 /* TextVerticalRulerView2.swift */,
 				667553BD1E7F9AF9001F5BD1 /* TextViewController.swift */,
 				667553BB1E7F859C001F5BD1 /* TextWindow.swift */,
-				667553B01E7F8116001F5BD1 /* Assets.xcassets */,
 			);
 			path = RichTextView;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				667553C01E7FA782001F5BD1 /* Application.swift in Sources */,
 				667553BC1E7F859C001F5BD1 /* TextWindow.swift in Sources */,
 				667553C61E8106CC001F5BD1 /* TextVerticalRulerView.swift in Sources */,
+				66886CEB1E9E89BD0041792F /* NSTextViewEx.swift in Sources */,
 				667553AF1E7F8116001F5BD1 /* AppDelegate.swift in Sources */,
 				66BC66B81E8F917F00309EB5 /* TextVerticalRulerView2.swift in Sources */,
 				667553C81E813438001F5BD1 /* NSColorEx.swift in Sources */,

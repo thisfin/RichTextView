@@ -46,15 +46,18 @@ class TextViewController: NSViewController, NSTextViewDelegate {
 //        textView.usesRuler = true
         textView.isEditable = true
         textView.isSelectable = true
-        textView.string = "hahahahah"
+//        textView.string = "hahahahahhahahahahhahahahahhahahahahhahahahahhahahahahhahahahah\n1\n2\n3\n4\n5\n6\n7\n8\n8\n8\n8"
+//        textView.string = "1hahaj"
 
         textView.isVerticallyResizable = true
-        textView.isHorizontallyResizable = false
+        textView.isHorizontallyResizable = true
         textView.minSize = NSMakeSize(0, scrollView.contentSize.height)
-        textView.maxSize = NSMakeSize(CGFloat(FLT_MAX), CGFloat(FLT_MAX))
-        textView.textContainer?.containerSize = NSMakeSize(scrollView.contentSize.width, CGFloat(FLT_MAX))
-        textView.textContainer?.widthTracksTextView = true
+        textView.maxSize = NSMakeSize(CGFloat(Float.greatestFiniteMagnitude), CGFloat(Float.greatestFiniteMagnitude))
+        textView.textContainer?.containerSize = NSMakeSize(CGFloat(Float.greatestFiniteMagnitude), CGFloat(Float.greatestFiniteMagnitude))
+//                textView.textContainer?.containerSize = NSMakeSize(scrollView.contentSize.width, CGFloat(Float.greatestFiniteMagnitude))
+        textView.textContainer?.widthTracksTextView = false
         textView.textContainer?.heightTracksTextView = false
+        textView.textContainerInset = .zero
 
         textView.postsFrameChangedNotifications = true
         rulerView = TextVerticalRulerView(textView: textView) //TextVerticalRulerView(scrollView: scrollView, orientation: .verticalRuler)

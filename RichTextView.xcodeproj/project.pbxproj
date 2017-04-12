@@ -16,6 +16,7 @@
 		667553C41E80F8A5001F5BD1 /* NSFontEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667553C31E80F8A5001F5BD1 /* NSFontEx.swift */; };
 		667553C61E8106CC001F5BD1 /* TextVerticalRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667553C51E8106CC001F5BD1 /* TextVerticalRulerView.swift */; };
 		667553C81E813438001F5BD1 /* NSColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667553C71E813438001F5BD1 /* NSColorEx.swift */; };
+		66BC66B81E8F917F00309EB5 /* TextVerticalRulerView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BC66B71E8F917F00309EB5 /* TextVerticalRulerView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		667553C31E80F8A5001F5BD1 /* NSFontEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFontEx.swift; sourceTree = "<group>"; };
 		667553C51E8106CC001F5BD1 /* TextVerticalRulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextVerticalRulerView.swift; sourceTree = "<group>"; };
 		667553C71E813438001F5BD1 /* NSColorEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorEx.swift; sourceTree = "<group>"; };
+		66BC66B71E8F917F00309EB5 /* TextVerticalRulerView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextVerticalRulerView2.swift; sourceTree = "<group>"; };
 		834F1893B70D7BBE727E9EF9 /* Pods-RichTextView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RichTextView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RichTextView/Pods-RichTextView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				667553C71E813438001F5BD1 /* NSColorEx.swift */,
 				667553C31E80F8A5001F5BD1 /* NSFontEx.swift */,
 				667553C51E8106CC001F5BD1 /* TextVerticalRulerView.swift */,
+				66BC66B71E8F917F00309EB5 /* TextVerticalRulerView2.swift */,
 				667553BD1E7F9AF9001F5BD1 /* TextViewController.swift */,
 				667553BB1E7F859C001F5BD1 /* TextWindow.swift */,
 				667553B01E7F8116001F5BD1 /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 				667553BC1E7F859C001F5BD1 /* TextWindow.swift in Sources */,
 				667553C61E8106CC001F5BD1 /* TextVerticalRulerView.swift in Sources */,
 				667553AF1E7F8116001F5BD1 /* AppDelegate.swift in Sources */,
+				66BC66B81E8F917F00309EB5 /* TextVerticalRulerView2.swift in Sources */,
 				667553C81E813438001F5BD1 /* NSColorEx.swift in Sources */,
 				667553BE1E7F9AF9001F5BD1 /* TextViewController.swift in Sources */,
 			);

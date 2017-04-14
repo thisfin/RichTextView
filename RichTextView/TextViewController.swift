@@ -29,7 +29,7 @@ class TextViewController: NSViewController, NSTextViewDelegate {
         view.addSubview(scrollView)
 
         scrollView.hasVerticalScroller = true
-        scrollView.hasHorizontalScroller = false
+        scrollView.hasHorizontalScroller = true
 
         scrollView.rulersVisible = true
         scrollView.hasVerticalRuler = true
@@ -39,7 +39,7 @@ class TextViewController: NSViewController, NSTextViewDelegate {
         scrollView.documentView = textView
 
         textView.delegate = self
-        textView.font = NSFont(name: "PT Mono", size: 40)
+        textView.font = NSFont(name: "PT Mono", size: Constants.hostInfoFontSize)
         textView.textColor = NSColor.colorWithHexValue(0x333333)
 //        textView.isRulerVisible = true
         textView.backgroundColor = .white
@@ -60,6 +60,16 @@ class TextViewController: NSViewController, NSTextViewDelegate {
         textView.textContainer?.widthTracksTextView = false
         textView.textContainer?.heightTracksTextView = false
         textView.textContainerInset = .zero
+//        textView.defaultParagraphStyle = {
+//            let style = NSMutableParagraphStyle()
+////            style.lineHeightMultiple = 45
+////            style.maximumLineHeight = 45
+////            style.minimumLineHeight = 45
+////            style.lineSpacing = 8
+//            return style
+//        }()
+
+        textView.layoutManager?.typesetter = WYTypesetter()
 
         textView.postsFrameChangedNotifications = true
         rulerView = TextVerticalRulerView(textView: textView) //TextVerticalRulerView(scrollView: scrollView, orientation: .verticalRuler)

@@ -14,6 +14,9 @@ typealias SimpleBlock = (_ data: AnyObject) -> Void
 class Constants {
     static let hostInfoFontSize: CGFloat = 40
 
+    static let hostFontColor = NSColor.colorWithHexValue(0x333333)
+    static let hostNoteFontColor = NSColor.red
+
     static let colorBianchi = NSColor.colorWithHexValue(0x8bddd1)
 
     static let colorTableBackground = NSColor.colorWithHexValue(0xf5f5f5)

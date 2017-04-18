@@ -1,17 +1,14 @@
-# IconfontPreview
-iconfont文件预览
+# RichTestView
+
+简单的文本编辑器
 
 * 功能
-    - 预览iconfont文件
-    - 点击拷贝unicode值
-    - font-awesome & iconfont 已经测试通过
-    - 自动保存上次打开路径
-    - [font-awesome](http://fontawesome.io/)
-    - [iconfont](http://iconfont.cn/)
+    - 行号
+    - # 注释的颜色变换
+    - 固定行高, 解决中英文字体高度不一样的问题
+    - 禁邮件菜单
+    - 支持 拷贝 / 粘贴 / 剪切 / 全选 的快捷键操作
 
 * todo
-    - 去掉css文件的依赖, 直接读取ttf文件
-    - 文件选择器的异常处理
-    - 优化窗口切换代码 window switch
-    - 大文件打开卡顿优化
-    - command+q
+    - 还不支持换行的行号处理
+    - undo / redo 快捷键支持

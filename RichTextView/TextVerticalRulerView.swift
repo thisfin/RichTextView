@@ -28,7 +28,7 @@ class TextVerticalRulerView: NSRulerView {
             // let contentHeight = layoutManager.usedRect(for: textView.textContainer!).size.height usedRect在光标位置不在尾行的时候不是全部的高度
             let contentHeight = layoutManager.boundingRect(forGlyphRange: NSMakeRange(0, (textView.string?.characters.count)!), in: textView.textContainer!).size.height
             // 行数 = 高度 / 行高
-            let lineCount = Int(round(contentHeight / ((textView.font?.ascender)! + abs((textView.font?.descender)!) + (textView.font?.leading)!)))
+            let lineCount = Int(round(contentHeight / (Constants.hostFont.ascender + abs(Constants.hostFont.descender) + Constants.hostFont.leading)))
             // 计算行号左侧位数差
             let bitDifference = { (lineNumber: Int) -> Int in
                 return "\(lineCount)".characters.count - "\(lineNumber)".characters.count
@@ -36,11 +36,11 @@ class TextVerticalRulerView: NSRulerView {
             // 绘制行号
             let drawLineNumber = { (lineNumber: Int, y: CGFloat) -> Void in
                 let attString = NSAttributedString(string: "\(lineNumber)",
-                                                   attributes: [NSFontAttributeName: textView.font!, NSForegroundColorAttributeName: NSColor.colorWithHexValue(0x333333)])
-                let x = self.padding + NSString(string: "8").size(withAttributes: [NSFontAttributeName: textView.font!]).width * CGFloat(bitDifference(lineNumber))
+                                                   attributes: [NSFontAttributeName: Constants.hostFont, NSForegroundColorAttributeName: Constants.hostFontColor])
+                let x = self.padding + NSString(string: "8").size(withAttributes: [NSFontAttributeName: Constants.hostFont]).width * CGFloat(bitDifference(lineNumber))
                 let relativePoint = self.convert(NSPoint.zero, to: textView)
                 // 底部间距 http://ksnowlv.blog.163.com/blog/static/21846705620142325349309/
-                let descender = (Constants.hostInfoFontSize - (textView.font?.ascender)! - (textView.font?.descender)!) / 2
+                let descender = (Constants.hostInfoFontSize - Constants.hostFont.ascender - Constants.hostFont.descender) / 2
                 attString.draw(at: NSPoint(x: x, y: 0 - relativePoint.y + y - descender))
             }
 
@@ -74,7 +74,7 @@ class TextVerticalRulerView: NSRulerView {
             }
 
             // 调整行号区域的宽度
-            ruleThickness = CGFloat(String(lineCount).characters.count) * NSString.init(string: "8").size(withAttributes: [NSFontAttributeName: textView.font!]).width + padding * 2
+            ruleThickness = CGFloat(String(lineCount).characters.count) * NSString.init(string: "8").size(withAttributes: [NSFontAttributeName: Constants.hostFont]).width + padding * 2
         }
     }
 }

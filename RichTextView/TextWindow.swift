@@ -13,6 +13,6 @@ class TextWindow: NSWindow {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
 
         contentViewController = TextViewController()
-        title = "hello"
+        title = "TextView Example"
     }
 }

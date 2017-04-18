@@ -12,6 +12,7 @@ import SnapKit
 
 class TextViewController: NSViewController, NSTextViewDelegate {
     var rulerView: TextVerticalRulerView!
+    var textView: NSTextView!
 
     override func loadView() {
         view = NSView()
@@ -34,75 +35,83 @@ class TextViewController: NSViewController, NSTextViewDelegate {
         scrollView.rulersVisible = true
         scrollView.hasVerticalRuler = true
 
-        let textView = NSTextView(frame: CGRect(origin: .zero, size: scrollView.frame.size))
+        textView = NSTextView(frame: CGRect(origin: .zero, size: scrollView.frame.size))
         textView.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
         scrollView.documentView = textView
 
         textView.delegate = self
-        textView.font = NSFont(name: "PT Mono", size: Constants.hostInfoFontSize)
-        textView.textColor = NSColor.colorWithHexValue(0x333333)
-//        textView.isRulerVisible = true
+        textView.font = Constants.hostFont
+        textView.textColor = Constants.hostFontColor
+        // textView.isRulerVisible = true
         textView.backgroundColor = .white
-//        textView.usesRuler = true
+        // textView.usesRuler = true
         textView.isEditable = true
         textView.isSelectable = true
         textView.usesFontPanel = false // 禁掉右键菜单中的字体选择
         textView.menu = nil // 禁掉右键菜单
-        textView.string = "hahahahahhahahahahhahahahahhahahahahhahahahahhahahahahhahahahah\n1\n2\n3\n4\n5\n6\n7\n8\n8\n8\n8"
-//        textView.string = "1hahaj"
+        textView.layoutManager?.typesetter = WYTypesetter()
+//        textView.string = "1234567890hahahahahhahahahahhahahahahhahahahahhahahahahhahahahahhahahahah\n1\n2\n3\n4\n5\n6\n7\n8\n8\n8\n8"
+//        textView.string = "电风扇\n"
+        textView.string = "d中#sdf"
+        self.textDidChange(Notification.init(name: .NSTextDidChange)) // 显式调用
+
+        // let attributedString = NSMutableAttributedString.init(string: "hello")
+        // attributedString.addAttributes([NSForegroundColorAttributeName: NSColor.textColor], range: NSRange.init(location: 0, length: attributedString.length))
+        // textView.insertText(attributedString, replacementRange: NSRange.init(location: 0, length: (textView.string?.characters.count)!))
 
         textView.isVerticallyResizable = true
         textView.isHorizontallyResizable = true
         textView.minSize = NSMakeSize(0, scrollView.contentSize.height)
         textView.maxSize = NSMakeSize(CGFloat(Float.greatestFiniteMagnitude), CGFloat(Float.greatestFiniteMagnitude))
         textView.textContainer?.containerSize = NSMakeSize(CGFloat(Float.greatestFiniteMagnitude), CGFloat(Float.greatestFiniteMagnitude))
-//                textView.textContainer?.containerSize = NSMakeSize(scrollView.contentSize.width, CGFloat(Float.greatestFiniteMagnitude))
+        // textView.textContainer?.containerSize = NSMakeSize(scrollView.contentSize.width, CGFloat(Float.greatestFiniteMagnitude))
         textView.textContainer?.widthTracksTextView = false
         textView.textContainer?.heightTracksTextView = false
         textView.textContainerInset = .zero
 //        textView.defaultParagraphStyle = {
 //            let style = NSMutableParagraphStyle()
-////            style.lineHeightMultiple = 45
-////            style.maximumLineHeight = 45
-////            style.minimumLineHeight = 45
-////            style.lineSpacing = 8
+//            style.lineHeightMultiple = 45
+//            style.maximumLineHeight = 45
+//            style.minimumLineHeight = 45
+//            style.lineSpacing = 8
 //            return style
 //        }()
 
-        textView.layoutManager?.typesetter = WYTypesetter()
-
         textView.postsFrameChangedNotifications = true
-        rulerView = TextVerticalRulerView(textView: textView) //TextVerticalRulerView(scrollView: scrollView, orientation: .verticalRuler)
+        rulerView = TextVerticalRulerView(textView: textView)
+        // rulerView = TextVerticalRulerView(scrollView: scrollView, orientation: .verticalRuler)
         scrollView.verticalRulerView = rulerView
-
-//        textView.enclosingScrollView?.hasVerticalScroller = true
-
-
-//        scrollView.contentView.addSubview(textView)
-
-//        textView.enclosingScrollView?.verticalRulerView = NSRulerView.init(scrollView: textView.enclosingScrollView, orientation: .verticalRuler)
-//        textView.enclosingScrollView?.hasVerticalRuler = true
-//        textView.isRulerVisible = true
-
-
-
-
-//        scrollView.addSubview(textView)
-//        scrollView.con
 
         NotificationCenter.default.addObserver(self, selector: #selector(TextViewController.selectorFrameDidChange(_:)), name:.NSViewFrameDidChange, object: textView)
         NotificationCenter.default.addObserver(self, selector: #selector(TextViewController.selectorTextDidChange(_:)), name:.NSTextDidChange, object: textView)
     }
 
     func selectorFrameDidChange(_ sender: NSTextView) {
-        rulerView.needsDisplay = true
+        rulerView.needsDisplay = true // 行号渲染
     }
 
     func selectorTextDidChange(_ sender: NSTextView) {
-        rulerView.needsDisplay = true
+        rulerView.needsDisplay = true // 行号渲染
     }
 
     // MARK: - NSTextViewDelegate
-    func textDidChange(_ notification: Notification) {
+    func textDidChange(_ notification: Notification) { // 注释用其他颜色做渲染
+        let string = textView.textStorage?.string
+
+        textView.textStorage?.beginEditing()
+        textView.textStorage?.removeAttribute(NSForegroundColorAttributeName, range: NSMakeRange(0, (string?.characters.count)!))
+        textView.textStorage?.addAttribute(NSForegroundColorAttributeName, value: Constants.hostFontColor, range: NSMakeRange(0, (string?.characters.count)!))
+        textView.textStorage?.endEditing()
+
+        let regex = try! NSRegularExpression.init(pattern: "#.*$", options: [.anchorsMatchLines])
+
+        regex.enumerateMatches(in: string!, options: [], range: NSRange.init(location: 0, length: (string?.characters.count)!)) {
+            (textCheckingResult, matchingFlags, b) in
+            let range = (textCheckingResult?.range)!
+            textView.textStorage?.beginEditing()
+            textView.textStorage?.addAttribute(NSForegroundColorAttributeName, value: Constants.hostNoteFontColor, range: range)
+            textView.textStorage?.endEditing()
+            // NSLog("\((string! as NSString).substring(with: range))")
+        }
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 wenyou. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 extension NSFont {
     // 打印系统所支持字体

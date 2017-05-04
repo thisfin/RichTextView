@@ -6,7 +6,7 @@
 //  Copyright © 2017年 wenyou. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class TextVerticalRulerView: NSRulerView {
     private let padding: CGFloat = 5 // 行号左右边距

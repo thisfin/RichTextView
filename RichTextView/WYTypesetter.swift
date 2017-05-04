@@ -6,7 +6,7 @@
 //  Copyright © 2017年 wenyou. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class WYTypesetter: NSATSTypesetter {
     // 重写此方法用来固定行高, 因为英文和中文的行高不同

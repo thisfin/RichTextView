@@ -6,7 +6,7 @@
 //  Copyright © 2016年 wenyou. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 extension NSColor {
     static func colorWithHexValue(_ hexValue: UInt, alpha: UInt = 255) -> NSColor {

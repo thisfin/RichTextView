@@ -6,7 +6,7 @@
 //  Copyright © 2017年 wenyou. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 extension NSTextView {
     override open func performKeyEquivalent(with event: NSEvent) -> Bool {

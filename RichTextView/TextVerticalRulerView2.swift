@@ -6,7 +6,7 @@
 //  Copyright © 2017年 wenyou. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class TextVerticalRulerView2: NSRulerView {
     required init(coder: NSCoder) {

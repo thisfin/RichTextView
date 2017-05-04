@@ -7,7 +7,7 @@
 //
 
 
-import Cocoa
+import AppKit
 
 class Application: NSApplication { // 注册到info.plist
     let appDelegate = AppDelegate()

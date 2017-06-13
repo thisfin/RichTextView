@@ -37,6 +37,7 @@ class TextViewController: NSViewController, NSTextViewDelegate {
 
         textView = NSTextView(frame: CGRect(origin: .zero, size: scrollView.frame.size))
         textView.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
+        textView.allowsUndo = true
         scrollView.documentView = textView
 
         textView.delegate = self
